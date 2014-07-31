@@ -82,4 +82,4 @@ all: clean check $(SDL_TARGETS)
 include Makefile.common
   
 clean:
-	@rm -rf **/*.swf **/*.swc **/*.bc **/*.abc **/*.exe **/*.zip
+	@rm -rf *.swf **/*.swc **/*.bc **/*.abc **/*.exe **/*.zip
