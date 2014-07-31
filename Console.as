@@ -51,17 +51,13 @@ package com.adobe.flascc
 
         _tf = new TextField;
         _tf.multiline = true;
-        _tf.x = 200;
-        _tf.y = 200;
-        _tf.width = 250;//stage.stageWidth;
-        _tf.height = 150;//stage.stageHeight ;
+        _tf.width = 800;//stage.stageWidth;
+        _tf.height = 600;//stage.stageHeight ;
 
         inputContainer.addChild(_tf);
 
         _tf.border = true;
     }
-
-
     
     private var mainloopTickPtr:int;
     private var inputContainer;
@@ -114,7 +110,7 @@ package com.adobe.flascc
     {
       ctx3d = s3d.context3D
       ctx3d.configureBackBuffer(stage.stageWidth, stage.stageHeight, 2, true /*enableDepthAndStencil*/ )
-      ctx3d.enableErrorChecking = false;
+      ctx3d.enableErrorChecking = true;
       consoleWrite("Stage3D context: " + ctx3d.driverInfo);
 
       if(ctx3d.driverInfo.indexOf("Software") != -1) {
@@ -124,7 +120,7 @@ package com.adobe.flascc
       
       GLAPI.init(ctx3d, null, stage);
       GLAPI.instance.context.clear(1.0, 1.0, 0.0);
-      GLAPI.instance.context.configureBackBuffer(640, 480, 2, true /*enableDepthAndStencil*/ );
+      GLAPI.instance.context.configureBackBuffer(800, 600, 2, true /*enableDepthAndStencil*/ );
       
       // file system
       CModule.vfs.console = this;
@@ -134,17 +130,9 @@ package com.adobe.flascc
       // starting c code
       CModule.startAsync(this, new <String>["/main.swf"]);
 
-      GLAPI.instance.context.present();
 
       //stage.addEventListener (Event.ENTER_FRAME, enterFrame);
-      //stage.addEventListener (Event.ENTER_FRAME, onFrame);
-    }
-
-    private function onFrame (e:Event):void
-    {
-      
-      GLAPI.instance.context.clear(1.0, 1.0, 0.0);
-      GLAPI.instance.context.present();
+      enterFrame(null);
     }
     
     private function stageResize(event:Event):void
@@ -205,11 +193,13 @@ package com.adobe.flascc
     protected function enterFrame(e:Event):void
     {
       if(!inited) {
+         consoleWrite('Initializing');
         inited = true;
         mainloopTickPtr = CModule.getPublicSymbol("_Z4drawv");
       }
 
       CModule.callI(mainloopTickPtr, emptyVec);
+      GLAPI.instance.context.clear(1.0, 1.0, 0.0);
       GLAPI.instance.context.present();
     }
   }
