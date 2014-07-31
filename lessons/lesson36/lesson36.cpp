@@ -5,6 +5,10 @@ and may not be redistributed without written permission.*/
 #include "SDL/SDL.h"
 #include "SDL/SDL_opengl.h"
 
+#ifdef __AVM2__
+    #include <AS3/AS3.h>
+#endif
+
 //Screen attributes
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;

@@ -98,6 +98,7 @@ int main( int argc, char* args[] )
           
 #ifdef __AVM2__
     AS3_GoAsync();
+    return 0;
 #endif 
 
     //Wait 2 seconds

@@ -14,6 +14,10 @@ have video functions running in seperate threads.
 #include "SDL/SDL_thread.h"
 #include <string>
 
+#ifdef __AVM2__
+    #include <AS3/AS3.h>
+#endif
+
 //Screen attributes
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;

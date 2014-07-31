@@ -1,5 +1,8 @@
 #include "SDL/SDL.h"
-#include <AS3/AS3.h>
+
+#ifdef __AVM2__
+    #include <AS3/AS3.h>
+#endif
 
 SDL_Rect screenRect;
 
@@ -56,9 +59,9 @@ int main( int argc, char* args[] )
     // drawing bitmap on the screen
     draw();
 
-    // разрыв шаблона
-    AS3_GoAsync();
-
+    #ifdef __AVM2__
+        AS3_GoAsync();
+    #endif
 
     //Pause
     //SDL_Delay( 5000 );

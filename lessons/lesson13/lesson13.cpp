@@ -8,6 +8,10 @@ and may not be redistributed without written permission.*/
 #include <string>
 #include <sstream>
 
+#ifdef __AVM2__
+    #include <AS3/AS3.h>
+#endif
+
 //Screen attributes
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -291,6 +295,11 @@ int main( int argc, char* args[] )
     //Generate the message surfaces
     startStop = TTF_RenderText_Solid( font, "Press S to start or stop the timer", textColor );
     pauseMessage = TTF_RenderText_Solid( font, "Press P to pause or unpause the timer", textColor );
+    
+#ifdef __AVM2__
+    AS3_GoAsync();
+    return 0;
+#endif
 
     //Start the timer
     myTimer.start();

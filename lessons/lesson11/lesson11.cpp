@@ -8,6 +8,10 @@ and may not be redistributed without written permission.*/
 #include "SDL/SDL_mixer.h"
 #include <string>
 
+#ifdef __AVM2__
+    #include <AS3/AS3.h>
+#endif
+
 //Screen attributes
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -259,6 +263,11 @@ int main( int argc, char* args[] )
     {
         return 1;
     }
+    
+#ifdef __AVM2__
+    AS3_GoAsync();
+    return 0;
+#endif
 
     //While the user hasn't quit
     while( quit == false )
