@@ -18,8 +18,8 @@ have video functions running in seperate threads.
 #endif
 
 //Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The surfaces
@@ -40,6 +40,12 @@ SDL_mutex *bufferLock = NULL;
 //The conditions
 SDL_cond *canProduce = NULL;
 SDL_cond *canConsume = NULL;
+
+void draw()
+{
+    // TODO
+}
+
 
 SDL_Surface *load_image( std::string filename )
 {

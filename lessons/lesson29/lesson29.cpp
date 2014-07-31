@@ -12,8 +12,8 @@ and may not be redistributed without written permission.*/
 #endif
 
 //Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The frame rate
@@ -60,6 +60,12 @@ SDL_Event event;
 
 //The camera
 SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+
+void draw()
+{
+    // TODO
+}
+
 
 //The tile
 class Tile

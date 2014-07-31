@@ -11,8 +11,8 @@ and may not be redistributed without written permission.*/
 #endif
 
 //Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //Flip flags
@@ -28,6 +28,12 @@ SDL_Surface *screen = NULL;
 
 //The event structure
 SDL_Event event;
+
+void draw()
+{
+    // TODO
+}
+
 
 SDL_Surface *load_image( std::string filename )
 {

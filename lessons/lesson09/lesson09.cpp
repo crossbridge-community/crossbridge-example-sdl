@@ -11,8 +11,8 @@ and may not be redistributed without written permission.*/
 #endif
 
 //Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The button states in the sprite sheet
@@ -30,6 +30,12 @@ SDL_Event event;
 
 //The clip regions of the sprite sheet
 SDL_Rect clips[ 4 ];
+
+void draw()
+{
+    // TODO
+}
+
 
 //The button
 class Button

@@ -10,18 +10,19 @@ SDL_Surface* hello = NULL;
 SDL_Surface* screen = NULL;
 
 //The attributes of the screen
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 void draw()
 {
-    printf("%s\n", "Draw" );
+    SDL_FillRect(hello, NULL, SDL_MapRGB(screen->format, 0, 0, 0));
+    //printf("%s\n", "Draw" );
     //Apply image to screen
     SDL_BlitSurface( hello, NULL, screen, NULL );
     //Update Screen
     SDL_Flip( screen );
-    //SDL_UpdateRects(screen, 1, &screenRect);  
+    SDL_UpdateRects(screen, 1, &screenRect);  
     // SDL_Delay(20);
 }
 
@@ -39,6 +40,7 @@ int main( int argc, char* args[] )
     SDL_Init( SDL_INIT_VIDEO);
 
     //Set up screen
+    // SDL_SWSURFACE | SDL_OPENGL | SDL_FULLSCREEN
     screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE );
 
     //Load image

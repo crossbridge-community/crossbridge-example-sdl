@@ -13,8 +13,8 @@ and may not be redistributed without written permission.*/
 #endif
 
 //Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The surfaces
@@ -39,6 +39,12 @@ Mix_Chunk *scratch = NULL;
 Mix_Chunk *high = NULL;
 Mix_Chunk *med = NULL;
 Mix_Chunk *low = NULL;
+
+void draw()
+{
+    // TODO
+}
+
 
 SDL_Surface *load_image( std::string filename )
 {

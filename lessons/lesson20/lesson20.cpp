@@ -11,8 +11,8 @@ and may not be redistributed without written permission.*/
 #endif
 
 //Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The frames per second
@@ -36,6 +36,12 @@ SDL_Event event;
 //The areas of the sprite sheet
 SDL_Rect clipsRight[ 4 ];
 SDL_Rect clipsLeft[ 4 ];
+
+void draw()
+{
+    // TODO
+}
+
 
 //The stick figure
 class Foo

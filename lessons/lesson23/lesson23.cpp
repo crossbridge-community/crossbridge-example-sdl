@@ -12,8 +12,8 @@ and may not be redistributed without written permission.*/
 #endif
 
 //Screen attributes
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The surfaces
@@ -29,6 +29,12 @@ TTF_Font *font = NULL;
 
 //The color of the font
 SDL_Color textColor = { 0xFF, 0xFF, 0xFF };
+
+void draw()
+{
+    // TODO
+}
+
 
 //The key press interpreter
 class StringInput

@@ -10,14 +10,19 @@ and may not be redistributed without written permission.*/
 #endif
 
 //The attributes of the screen
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The surfaces that will be used
 SDL_Surface *message = NULL;
 SDL_Surface *background = NULL;
 SDL_Surface *screen = NULL;
+
+void draw()
+{
+    // TODO
+}
 
 SDL_Surface *load_image( std::string filename )
 {
