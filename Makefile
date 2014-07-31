@@ -68,13 +68,14 @@ all: clean check $(SDL_TARGETS)
 		-import $(call nativepath,$(FLASCC)/usr/lib/BinaryData.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/PlayerKernel.abc) \
 		-import $(call nativepath,lessons/$@/myfs.abc) \
-		lessons/$@/Console.as -outdir lessons/$@/ -out Console 
+		Console.as -outdir lessons/$@/ -out Console 
 	# Generate Main.SWF
 	"$(FLASCC)/usr/bin/g++" $(BASE_CFLAGS) lessons/$@/$@.cpp $(GLS3D)/install/usr/lib/libGL.abc lessons/$@/myfs.abc -symbol-abc=lessons/$@/Console.abc \
-	-I$(GLS3D)/install/usr/include/ -L$(GLS3D)/install/usr/lib/ \
-	-lSDL -lGL -lz -lvgl -lfreetype -lvorbis -logg -lz -emit-swf -swf-version=$(SWF_VERSION) -swf-size=$(SWF_SIZE) -o $@.swf 
+		-I$(GLS3D)/install/usr/include/ -L$(GLS3D)/install/usr/lib/ \
+		-lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lGL -lvgl -lfreetype -lvorbis -logg -lwebp -ltiff -lpng -lz -ljpeg  \
+		-emit-swf -swf-version=$(SWF_VERSION) -swf-size=$(SWF_SIZE) -o $@.swf 
 
 include Makefile.common
   
 clean:
-	@rm -f *.swf *.swc *.bc *.abc *.exe *.zip
+	@rm -rf **/*.swf **/*.swc **/*.bc **/*.abc **/*.exe **/*.zip

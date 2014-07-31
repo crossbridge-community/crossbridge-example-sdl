@@ -60,7 +60,8 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination 
 bool init()
 {
     //Initialize all SDL subsystems
-    if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 )
+    //if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 )
+    if( SDL_Init( SDL_INIT_VIDEO ) == -1 )
     {
         return false;
     }

@@ -33,6 +33,8 @@ SDL_Surface *load_image( std::string filename )
     //If nothing went wrong in loading the image
     if( loadedImage != NULL )
     {
+        printf("%s%s\n", "Load success:", filename.c_str() );
+    
         //Create an optimized image
         optimizedImage = SDL_DisplayFormat( loadedImage );
 
@@ -60,8 +62,10 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination 
 int main( int argc, char* args[] )
 {
     //Initialize all SDL subsystems
-    if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 )
+    //if( SDL_Init( SDL_INIT_EVERYTHING ) == -1 )
+    if( SDL_Init( SDL_INIT_VIDEO ) == -1 )
     {
+        printf("%s\n", "SDL_Init Failed\n" );
         return 1;
     }
 
@@ -71,6 +75,7 @@ int main( int argc, char* args[] )
     //If there was an error in setting up the screen
     if( screen == NULL )
     {
+        printf("%s\n", "SDL_SetVideoMode Failed\n" );
         return 1;
     }
 
@@ -93,6 +98,7 @@ int main( int argc, char* args[] )
     //Update the screen
     if( SDL_Flip( screen ) == -1 )
     {
+        printf("%s\n", "SDL_Flip Failed\n" );
         return 1;
     }
           
