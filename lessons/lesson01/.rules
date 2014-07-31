@@ -1,0 +1,2 @@
+VFS_SRCS = lessons/lesson01/_000000.as lessons/lesson01/_000001.as 
+VFS_ABCS := $(VFS_SRCS:.as=.abc)

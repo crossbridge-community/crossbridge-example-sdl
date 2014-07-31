@@ -4,4 +4,4 @@
 *.swc
 *.exe
 *.zip
-/temp/
+temp/
