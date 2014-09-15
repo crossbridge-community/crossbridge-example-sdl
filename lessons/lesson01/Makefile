@@ -1,11 +1,6 @@
 FLASCC:=/cygdrive/c/Temp/Crossbridge_1.0.1/sdk
 FLASCC_for_java:=$(shell cygpath $(FLASCC) -m)
 
-ALCEXTRA=/cygdrive/c/reps/alcextra
-GLS3D=/cygdrive/c/reps/GLS3D
-GLS3D_win=$(shell cygpath $(GLS3D) -m)
-
-
 CXX = $(FLASCC)/usr/bin/g++
 
 SDL_LIB = -L$(FLASCC)/usr/lib -lSDL
@@ -17,9 +12,9 @@ LDFLAGS = $(SDL_LIB)
 
 
 
-LDFLAGS=-L$(ALCEXTRA)/install/usr/lib/ -swf-version=17 -symbol-abc=Console.abc -jvmopt=-Xmx4G -emit-swf -swf-size=640x480
+LDFLAGS=-L$(FLASCC_for_java)/usr/lib/ -swf-version=17 -symbol-abc=Console.abc -jvmopt=-Xmx4G -emit-swf -swf-size=640x480
 
-OGL_LIBS=-l$(GLS3D)/install/usr/lib/libGL.abc -l/cygdrive/c/Temp/lesson01/lesson01/myfs.abc -L$(GLS3D)/install/usr/lib/ -lGL -lz -lvgl -lfreetype -lvorbis -logg -lz
+OGL_LIBS=-l$(FLASCC_for_java)/usr/lib/libGL.abc -l/cygdrive/c/Temp/lesson01/lesson01/myfs.abc -L$(FLASCC_for_java)/usr/lib/ -lGL -lz -lvgl -lfreetype -lvorbis -logg -lz
 
 SRC = .
 BUILD = build
@@ -33,7 +28,7 @@ console:
 	java -jar $(FLASCC_for_java)/usr/lib/asc2.jar -merge -md -AS3 -strict -optimize \
 		-import $(FLASCC_for_java)/usr/lib/builtin.abc \
 		-import $(FLASCC_for_java)/usr/lib/playerglobal.abc \
-		-import $(GLS3D_win)/install/usr/lib/libGL.abc \
+		-import $(FLASCC_for_java)/usr/lib/libGL.abc \
 		-import $(FLASCC_for_java)/usr/lib/ISpecialFile.abc \
 		-import $(FLASCC_for_java)/usr/lib/IBackingStore.abc \
 		-import $(FLASCC_for_java)/usr/lib/IVFS.abc \
